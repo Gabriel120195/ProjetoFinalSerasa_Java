@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head th:replace="~{fragmentos :: head('Tarefas')}">
+
+    <title>Nova Tarefa</title>
+
+</head>
+<body>
+    <header th:replace="~{fragmentos :: cabecalho}"></header>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">Nova Tarefa</div>
+            <div class="card-body">
+                <form th:action="@{/tarefas}" method="post" th:object="${tarefa}">
+                    <input type="hidden" th:field="*{id}">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-outline">
+                                <input type="text" id="nome" class="form-control" th:field="*{nome}" th:classappend="${#fields.hasErrors('nome') ? 'is-invalid' : ''}" />
+                                <label class="form-label" for="nome">NOME</label>
+                            </div>
+                            <span th:errors="*{nome}" style="color: rgb(209, 34, 34);"></span>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-outline">
+                                <input type="date" id="descricao" class="form-control" th:field="*{data}" th:classappend="${#fields.hasErrors('data') ? 'is-invalid' : ''}"/>
+                                <label class="form-label" for="data">DATA</label>
+                            </div>
+                            <span th:errors="*{data}" style="color: rgb(209, 34, 34);"></span>
+                        </div>
+                        <div class="col-12 mt-3">
+                        <div class="form-outline mb-4">
+                            <textarea class="form-control" th:field="*{descricao}" id="descricao" rows="4" th:classappend="${#fields.hasErrors('descricao') ? 'is-invalid' : ''}"></textarea>
+                            <label class="form-label" for="form6Example7">DESCRIÇÃO</label>
+                          </div>
+                          <span th:errors="*{descricao}" style="color: rgb(209, 34, 34);"></span>
+                        </div>                    
+                    </div>
+                        <div class="col-8">
+                            <h6>Status da tarefa</h6>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="status"
+                                    id="flexRadioDefault3" th:value="${T(br.com.grs.gerenciadorDeTarefas.model.enums.StatusTarefa).PENDENTE}" th:field="*{status}" />
+                                <label class="form-check-label" for="flexRadioDefault3"> Pendente </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="status"
+                                    id="flexRadioDefault4" th:value="${T(br.com.grs.gerenciadorDeTarefas.model.enums.StatusTarefa).EmPROGRESSO}" th:field="*{status}" />
+                                <label class="form-check-label" for="flexRadioDefault4"> Em Progresso </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="status"
+                                    id="flexRadioDefault5" th:value="${T(br.com.grs.gerenciadorDeTarefas.model.enums.StatusTarefa).CONCLUIDA}" th:field="*{status}" />
+                                <label class="form-check-label" for="flexRadioDefault5"> Concluida </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <a href="/tarefas" class="btn btn-warning">Voltar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer th:replace="~{fragmentos :: rodape}"></footer>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+</body>
+
+</html>
