@@ -8,6 +8,5 @@ import br.com.grs.gerenciadorDeTarefas.model.entity.Tarefa;
 
 public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
     
-    Tarefa findByIdAndNome(Long id, String nome);
     
 }

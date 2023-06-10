@@ -26,24 +26,24 @@ public class GerenciadorDeTarefasApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 
 		var t1 = Tarefa.builder()
-		.nome("Festa")
-		.descricao("Uma grande festa")
-		.status(StatusTarefa.EmPROGRESSO)
-		.data(LocalDate.now())
+		.nome("Criar App")
+		.descricao("Criar um aplicativo de gerenciar tarefas")
+		.status(StatusTarefa.CONCLUIDA)
+		.data(LocalDate.of(2023, 6, 9))
 		.build();
 
 		var t2 = Tarefa.builder()
-		.nome("Casamento")
-		.descricao("Um grande casamento")
-		.status(StatusTarefa.CONCLUIDA)
-		.data(LocalDate.now())
+		.nome("Estudar")
+		.descricao("Estudar novas linguagens de programação")
+		.status(StatusTarefa.EmPROGRESSO)
+		.data(LocalDate.of(2020, 2, 1))
 		.build();
 
 		var t3 = Tarefa.builder()
-		.nome("Jogo de futebol")
-		.descricao("Um grande Jogo")
+		.nome("Aprender um novo idioma")
+		.descricao("Estudar e praticar um novo idioma")
 		.status(StatusTarefa.PENDENTE)
-		.data(LocalDate.now())
+		.data(LocalDate.of(1995, 1, 12))
 		.build();
 
 

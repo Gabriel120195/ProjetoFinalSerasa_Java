@@ -17,7 +17,6 @@ import br.com.grs.gerenciadorDeTarefas.model.dto.TarefaInserirDTO;
 import br.com.grs.gerenciadorDeTarefas.model.dto.TarefaDTO;
 import br.com.grs.gerenciadorDeTarefas.model.entity.Tarefa;
 import br.com.grs.gerenciadorDeTarefas.service.TarefaService;
-import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import lombok.Getter;
 
@@ -42,7 +41,7 @@ public class TarefaController {
 
 
     @PostMapping
-    public String salvar(@ModelAttribute("tarefa") @Valid TarefaInserirDTO tarefa, Errors errors)throws Exception{
+    public String salvar(@ModelAttribute("tarefa") TarefaInserirDTO tarefa, Errors errors)throws Exception{
         if (!errors.hasErrors()) {
             TarefaDTO tarefaDTO = getTarefaService().salvar(tarefa);
             tarefa.setId(tarefaDTO.getId());
